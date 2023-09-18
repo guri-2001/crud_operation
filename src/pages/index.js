@@ -13,7 +13,7 @@ export async function getStaticProps() {
     useNewUrlParser: true,
   }).then(() => { console.log("DB connected") });
 
-  const notes = await Note.find().sort({ createdAt: 'desc' });
+  const notes = await Note.find();
   console.log(notes);
 
   return {
@@ -67,7 +67,7 @@ export default function Home({ notes }) {
               notes.map((note) => {
                 return (
                   <>
-                    <div key={note._id} className='flex  w-1/2 m-auto bg-slate-50	 hover:shadow-xl transition-all py-2 px-3 rounded-sm justify-between text-2xl mt-8 mb-5'>
+                    <div key={note._id} className='flex  w-1/2 m-auto bg-slate-50	 hover:shadow-xl transition-all py-2 px-3 rounded-sm justify-between text-2xl mt-10 mb-5'>
                       <div className='flex flex-col gap-3'>
                         <h2 className='text-3xl'>{note.title}</h2>
                         <p className='text-base'>
