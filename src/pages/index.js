@@ -74,7 +74,7 @@ export default function Home({ notes }) {
                           {note.content}
                         </p>
                       </div>
-                      <div className='flex gap-4 mt-5 text-start'>
+                      <div className='flex gap-4 mt-5 text-start '>
                         <button onClick={(title, content, noteId) => editForm(note.title, note.content, note._id)} className='hover:text-green-600' title='Edit' ><FiEdit /></   button>
                         <button onClick={() => deleteNote(note._id)} className='hover:text-rose-600' title='Delete'><MdDelete /></button>
                       </div>
