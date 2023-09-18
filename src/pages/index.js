@@ -67,14 +67,14 @@ export default function Home({ notes }) {
               notes.map((note) => {
                 return (
                   <>
-                    <div key={note._id} className='flex  w-1/2 m-auto bg-gray-200 py-2 px-3 rounded-xl justify-between text-2xl mt-5 mb-5'>
-                      <div>
-                        <h4>{note.title}</h4>
-                        <p>
+                    <div key={note._id} className='flex  w-1/2 m-auto bg-slate-50	 hover:shadow-xl transition-all py-2 px-3 rounded-sm justify-between text-2xl mt-8 mb-5'>
+                      <div className='flex flex-col gap-3'>
+                        <h2 className='text-3xl'>{note.title}</h2>
+                        <p className='text-base'>
                           {note.content}
                         </p>
                       </div>
-                      <div className='flex gap-4 mt-5 text-start '>
+                      <div className='flex gap-4 mt-5 items-start'>
                         <button onClick={(title, content, noteId) => editForm(note.title, note.content, note._id)} className='hover:text-green-600' title='Edit' ><FiEdit /></   button>
                         <button onClick={() => deleteNote(note._id)} className='hover:text-rose-600' title='Delete'><MdDelete /></button>
                       </div>
@@ -85,8 +85,8 @@ export default function Home({ notes }) {
             }
             {
               visibility && <div>
-                <h1 className='text-3xl text-center'>Update</h1>
-                <div className='w-1/2 m-auto bg-slate-800	p-4 text-white'>
+                <h1 className='text-3xl text-center mb-5'>Update Notes</h1>
+                <div className='w-1/2 m-auto bg-gray-700		p-4 text-white rounded-lg'>
                   <div>
                     <label>Title</label>
                     <input type='text' placeholder='Title' id='title' value={title} onChange={(e) => setTitle(e.target.value)} className='w-full p-2 text-black' />
@@ -95,9 +95,9 @@ export default function Home({ notes }) {
                     <label>Content</label>
                     <textarea onChange={(e) => setContent(e.target.value)} type='text' placeholder='Content' id='content' value={content} className='w-full p-2 text-black'></textarea>
                   </div>
-                  <div className='flex gap-3'>
-                    <button type='submit' onClick={() => updateNote(noteId)} className='bg-green-500 p-1 rounded-lg text-black'>Update</button>
-                    <button onClick={() => setVisibility(visibility => !visibility)} className='bg-rose-500 p-1 rounded-lg text-black'>Cancel</button>
+                  <div className='flex gap-3 mt-4 '>
+                    <button type='submit' onClick={() => updateNote(noteId)} className='bg-green-500 p-1 px-3 rounded-lg text-black'>Update</button>
+                    <button onClick={() => setVisibility(visibility => !visibility)} className='bg-rose-500 p-1 px-3 rounded-lg text-black'>Cancel</button>
                   </div>
                 </div>
               </div>
